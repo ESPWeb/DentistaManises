@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinica Dental Dra. Amparo Magraner - Manises</title>
+    
+    <!-- Google Fonts: Montserrat for a clean, professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon: A professional blue 'A' on a soft off-white background -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23F8F8F8'/%3E%3Ctext x='50' y='75' font-family='Montserrat, sans-serif' font-weight='700' font-size='70' fill='%23003366' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+
+    <style>
+        /* --- Color & Font Variables --- */
+        :root {
+            --professional-blue: #003366;
+            --vibrant-red: #CC0000;
+            --healthy-green: #339933;
+            --soft-off-white: #F8F8F8;
+            --light-gray: #DCDCDC;
+            --dark-text: #333333;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body); margin: 0; padding: 0;
+            background-color: var(--soft-off-white); color: var(--dark-text);
+            line-height: 1.6; padding-bottom: 150px;
+        }
+
+        /* --- Header & Navigation (Compact) --- */
+        .header {
+            background-color: #fff; padding: 5px 20px; text-align: center;
+            position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .hamburger-icon .bar { background-color: var(--professional-blue); }
+        #nav-menu { background-color: #fff; }
+        #nav-menu a { color: var(--professional-blue); font-weight: bold; transition: color 0.3s; }
+        #nav-menu a:hover { color: var(--vibrant-red); }
+        
+        /* --- General Section Styling (Compact) --- */
+        .section { padding: 25px 20px; text-align: center; }
+        .bg-gray { background-color: var(--light-gray); }
+        .section-title {
+            font-size: 1.8em; color: var(--professional-blue);
+            margin-top: 0; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .icon-tooth {
+            width: 24px; height: 24px; fill: var(--healthy-green); flex-shrink: 0;
+        }
+
+        /* --- Hero/Title Section --- */
+        #titulo { padding-bottom: 15px; }
+        .hero-title {
+            font-size: 1.5em; color: var(--professional-blue);
+            margin: 0; font-weight: 700;
+        }
+        .hero-subtitle {
+            font-size: 1.1em; font-weight: 700;
+            color: var(--dark-text);
+            margin-top: 2px;
+        }
+
+        /* --- Owner & Team Photos (Compact) --- */
+        #doctora {
+            padding-top: 0;
+            padding-bottom: 10px;
+        }
+        .owner-photo, .team-photo {
+            width: 150px; height: 150px; border-radius: 50%; object-fit: cover;
+            border: 4px solid var(--professional-blue); margin-bottom: 4px;
+        }
+        .owner-name, .team-name {
+            font-weight: bold; font-size: 1.3em; margin-top: 0;
+            color: var(--professional-blue);
+        }
+        .team-container { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        
+        /* --- Services List --- */
+        .services-list { list-style: none; padding: 0; margin: 0 auto; max-width: 500px; display: flex; flex-direction: column; align-items: flex-start;}
+        .services-list li {
+            display: flex; align-items: center;
+            gap: 12px; margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* --- Why Choose Us & FAQ --- */
+        .reasons-container, .faq-container {
+            display: flex; flex-direction: column;
+            align-items: flex-start; /* FIX: Changed from 'center' to align left */
+            gap: 20px;
+            max-width: 600px; /* Added max-width to control centering of the block */
+            margin: 0 auto; /* Centers the whole block on the page */
+        }
+        .reason-card, .faq-item {
+            display: flex; align-items: center;
+            gap: 15px; text-align: left;
+        }
+        .reason-card h3, .faq-item h3 { color: var(--professional-blue); margin: 0 0 4px 0; font-size: 1.1em; }
+        .reason-card p, .faq-item p { font-size: 0.9em; margin: 0; }
+
+        /* --- Contact Section --- */
+        #contacto { background-color: var(--professional-blue); color: var(--soft-off-white); }
+        #contacto .section-title { color: var(--soft-off-white); }
+        .contact-info { list-style: none; padding: 0; }
+        .contact-info li { margin-bottom: 8px; }
+        .contact-info strong { color: var(--light-gray); }
+        .contact-info a { color: var(--soft-off-white); text-decoration: none; }
+
+        /* --- Helper/Responsive Styles --- */
+        .hamburger-icon { cursor: pointer; display: inline-block; padding: 10px; }
+        .hamburger-icon .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.4s; }
+        #nav-menu { display: none; list-style: none; padding: 0; margin: 5px 0 0 0; }
+        #nav-menu li { padding: 8px 0; }
+        @media (min-width: 768px) {
+            .hamburger-icon { display: none; }
+            #nav-menu { display: flex; justify-content: center; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="hamburger-icon" id="hamburger-btn"> <span class="bar"></span><span class="bar"></span><span class="bar"></span> </div>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#doctora">Doctora</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#elegirnos">Por Qué Elegirnos</a></li>
+                <li><a href="#faq">Preguntas</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="titulo" class="section">
+            <h1 class="hero-title">Clinica Dental Dra. Amparo Magraner</h1>
+            <p class="hero-subtitle">Manises</p>
+        </section>
+
+        <section id="doctora" class="section">
+            <img src="JefeFoto.webp" alt="Foto de la Dra. Amparo Magraner" class="owner-photo" width="400" height="400">
+            <p class="owner-name">Dra. Amparo</p>
+        </section>
+
+        <section id="servicios" class="section bg-gray">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <ul class="services-list">
+                <li><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg> <div>Ortodoncia Invisible</div></li>
+                <li><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg> <div>Implantes Dentales</div></li>
+                <li><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg> <div>Ortodoncia con Brackets</div></li>
+                <li><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg> <div>Odontología Infantil</div></li>
+                <li><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg> <div>Prótesis Dentales</div></li>
+                <li><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg> <div>Periodoncia</div></li>
+            </ul>
+        </section>
+        
+        <section id="elegirnos" class="section">
+            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+            <div class="reasons-container">
+                <div class="reason-card"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>Equipo Experimentado y Calificado</h3></div></div>
+                <div class="reason-card"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>Comodidad y Cuidado del Paciente</h3></div></div>
+                <div class="reason-card"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>Planes de Tratamiento Personalizados</h3></div></div>
+                <div class="reason-card"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>Testimonios y Reseñas Positivas</h3></div></div>
+            </div>
+        </section>
+
+        <section id="faq" class="section bg-gray">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>¿Atienden a niños?</h3><p>Sí, somos una clínica familiar y recibimos pacientes de todas las edades, incluidos niños.</p></div></div>
+                <div class="faq-item"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>Me pone nervioso ir al dentista. ¿Qué puede hacer para ayudarme?</h3><p>Entendemos que la ansiedad dental es común. Nuestro equipo está capacitado para brindar un ambiente tranquilo y de apoyo.</p></div></div>
+                <div class="faq-item"><svg class="icon-tooth" viewBox="0 0 24 24"><path d="M18.5,2H5.5C4.67,2,4,2.67,4,3.5V11c0,3.87,3.13,7,7,7h0c3.87,0,7-3.13,7-7V3.5C18,2.67,17.33,2,16.5,2h-2 C14.5,2,14,2,14,2s-1,0-2-1.5C10,2,10,2,9.5,2h-2C7.5,2,7,2,7,2S6,2,5,3.5V6h14V3.5C19,2.67,18.33,2,17.5,2h-1z M6,20v2h12v-2H6z"></path></svg><div><h3>¿Qué opciones de pago ofrecen?</h3><p>Aceptamos varios métodos de pago, incluyendo efectivo y las principales tarjetas de crédito y débito. También ofrecemos planes de pago flexibles y opciones de financiación.</p></div></div>
+            </div>
+        </section>
+
+        <section id="equipo" class="section">
+            <h2 class="section-title">Nuestro Equipo</h2>
+            <div class="team-container">
+                <!-- The Team Section Photo Links are here. -->
+                <div class="team-member"><img src="TeamMember1.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Laura</p></div>
+                <div class="team-member"><img src="TeamMember2.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Isabel</p></div>
+                <div class="team-member"><img src="TeamMember3.webp" alt="Miembro del equipo" class="team-photo" width="400" height="400"><p class="team-name">Elena</p></div>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <h2 class="section-title">Contacto</h2>
+            <ul class="contact-info">
+                <li><strong>Clínica:</strong> Clinica Dental Dra. Amparo Magraner</li>
+                <li><strong>Dirección:</strong> C. Maestro Chapí, 21, 46940 Manises, Valencia</li>
+                <li><strong>Teléfono:</strong> <a href="tel:961523929">96 152 39 29</a></li>
+                <li><strong>Email:</strong> <a href="mailto:info@clinicamagraner.es">info@clinicamagraner.es</a></li>
+                <li><strong>Horario:</strong></li>
+                <li>Lunes, Miércoles, Jueves: 9:30-13:30 y 15:30-21:00</li>
+                <li>Martes: 9:30-13:30 y 15:30-19:00</li>
+                <li>Viernes: 9:30-13:30</li>
+                <li>Sábado y Domingo: Cerrado</li>
+            </ul>
+        </section>
+
+    </main>
+    
+    <footer>
+        <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background-color: #f0f0f0; padding: 15px; text-align: center; border-top: 1px solid #ccc; z-index: 1000; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+            <p style="margin: 0 15px 10px 0; color: #333;">
+                <strong>Aviso Sobre Cookies:</strong> Este sitio web no utiliza cookies. Sin embargo, nuestro proveedor de alojamiento utiliza cookies esenciales y funcionales para operar este sitio y prestar sus servicios. Al continuar utilizando este sitio, acepta el uso de cookies por parte de nuestro proveedor de alojamiento.
+            </p>
+            <div>
+                <button id="accept-cookies" style="background-color: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Aceptar</button>
+                <button id="decline-cookies" style="background-color: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin: 5px;">Rechazar</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+        hamburgerBtn.addEventListener('click', () => { navMenu.style.display = (navMenu.style.display === 'block') ? 'none' : 'block'; });
+        navLinks.forEach(link => { link.addEventListener('click', () => { if (window.innerWidth < 768) { navMenu.style.display = 'none'; } }); });
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const declineBtn = document.getElementById('decline-cookies');
+        function hideBanner() { cookieBanner.style.display = 'none'; }
+        acceptBtn.addEventListener('click', hideBanner);
+        declineBtn.addEventListener('click', hideBanner);
+    </script>
+</body>
+</html>
